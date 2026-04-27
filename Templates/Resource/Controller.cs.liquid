@@ -1,0 +1,23 @@
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using {{ ProjectName }}.Api.Abstractions;
+using {{ ProjectName }}.Application.{{ ResourceName }}s.Create;
+
+namespace {{ ProjectName }}.Api.Controllers;
+
+public sealed class {{ ResourceName }}sController : ApiController
+{
+    public {{ ResourceName }}sController(ISender sender) : base(sender)
+    {
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(CancellationToken cancellationToken)
+    {
+        var command = new Create{{ ResourceName }}Command();
+
+        var result = await Sender.Send(command, cancellationToken);
+
+        return result.IsSuccess ? Ok(result.Value) : HandleFailure(result);
+    }
+}

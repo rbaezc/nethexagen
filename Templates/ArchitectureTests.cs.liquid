@@ -1,0 +1,58 @@
+using NetArchTest.Rules;
+using Xunit;
+using FluentAssertions;
+using System.Reflection;
+
+namespace {{ ProjectName }}.ArchitectureTests;
+
+public class ArchitectureTests
+{
+    private const string DomainNamespace = "{{ ProjectName }}.Domain";
+    private const string ApplicationNamespace = "{{ ProjectName }}.Application";
+    private const string InfrastructureNamespace = "{{ ProjectName }}.Infrastructure";
+    private const string ApiNamespace = "{{ ProjectName }}.Api";
+
+    [Fact]
+    public void Domain_Should_Not_HaveDependencyOnOtherLayers()
+    {
+        var assembly = Assembly.Load(DomainNamespace);
+
+        var result = Types.InAssembly(assembly)
+            .ShouldNot()
+            .HaveDependencyOnAll(
+                ApplicationNamespace,
+                InfrastructureNamespace,
+                ApiNamespace)
+            .GetResult();
+
+        result.IsSuccessful.Should().BeTrue();
+    }
+
+    [Fact]
+    public void Application_Should_Not_HaveDependencyOnInfrastructureOrApi()
+    {
+        var assembly = Assembly.Load(ApplicationNamespace);
+
+        var result = Types.InAssembly(assembly)
+            .ShouldNot()
+            .HaveDependencyOnAll(
+                InfrastructureNamespace,
+                ApiNamespace)
+            .GetResult();
+
+        result.IsSuccessful.Should().BeTrue();
+    }
+
+    [Fact]
+    public void Infrastructure_Should_Not_HaveDependencyOnApi()
+    {
+        var assembly = Assembly.Load(InfrastructureNamespace);
+
+        var result = Types.InAssembly(assembly)
+            .ShouldNot()
+            .HaveDependencyOn(ApiNamespace)
+            .GetResult();
+
+        result.IsSuccessful.Should().BeTrue();
+    }
+}

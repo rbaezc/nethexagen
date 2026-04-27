@@ -1,0 +1,115 @@
+using Serilog;
+using Asp.Versioning;
+using Scalar.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using {{ ProjectName }}.Application;
+using {{ ProjectName }}.Infrastructure;
+using {{ ProjectName }}.Api.Middleware;
+using {{ ProjectName }}.Infrastructure.Persistence;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Configure Serilog
+builder.Host.UseSerilog((context, loggerConfig) => 
+    loggerConfig.ReadFrom.Configuration(context.Configuration));
+
+// Add services to the container.
+builder.Services
+    .AddApplication()
+    .AddInfrastructure(builder.Configuration);
+
+// Authentication & Authorization
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(
+                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]!))
+        };
+    });
+
+builder.Services.AddAuthorization();
+
+// CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("DefaultPolicy", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
+
+{% if ApiType == "controllers" %}
+builder.Services.AddControllers();
+{% endif %}
+builder.Services.AddOpenApi();
+
+// Versioning
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ReportApiVersions = true;
+    options.ApiVersionReader = new UrlSegmentApiVersionReader();
+}).AddApiExplorer(options =>
+{
+    options.GroupNameFormat = "'v'VVV";
+    options.SubstituteApiVersionInUrl = true;
+});
+
+// Health Checks
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<ApplicationDbContext>();
+
+builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+builder.Services.AddProblemDetails();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+    app.MapScalarApiReference();
+}
+
+app.UseSerilogRequestLogging();
+
+app.UseExceptionHandler();
+
+app.UseCors("DefaultPolicy");
+
+app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapHealthChecks("/health");
+
+{% if ApiType == "controllers" %}
+app.MapControllers();
+{% else %}
+// Minimal API Endpoints with Versioning
+var versionSet = app.NewApiVersionSet()
+    .HasApiVersion(new ApiVersion(1, 0))
+    .ReportApiVersions()
+    .Build();
+
+app.MapGet("/", () => "Welcome to {{ ProjectName }} Minimal API!")
+    .WithApiVersionSet(versionSet)
+    .MapToApiVersion(1, 0)
+    .RequireAuthorization(); // Example of protected endpoint
+{% endif %}
+
+app.Run();

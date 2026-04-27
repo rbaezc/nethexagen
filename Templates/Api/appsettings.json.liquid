@@ -1,0 +1,38 @@
+{
+  "Serilog": {
+    "Using": [ "Serilog.Sinks.Console", "Serilog.Sinks.File" ],
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Warning",
+        "System": "Warning"
+      }
+    },
+    "WriteTo": [
+      { "Name": "Console" },
+      {
+        "Name": "File",
+        "Args": {
+          "path": "logs/log-.txt",
+          "rollingInterval": "Day"
+        }
+      }
+    ],
+    "Enrich": [ "FromLogContext", "WithMachineName", "WithThreadId" ]
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    {% if DbProvider == "postgresql" %}
+    "Database": "Host=localhost;Database={{ ProjectName }};Username=postgres;Password=postgres"
+    {% elsif DbProvider == "sqlite" %}
+    "Database": "Data Source={{ ProjectName }}.db"
+    {% else %}
+    "Database": "Server=(localdb)\\mssqllocaldb;Database={{ ProjectName }};Trusted_Connection=True;MultipleActiveResultSets=true"
+    {% endif %}
+  },
+  "Jwt": {
+    "Issuer": "{{ ProjectName }}",
+    "Audience": "{{ ProjectName }}",
+    "SecretKey": "YourSuperSecretKeyForDevelopmentOnlyDonotUseInProduction"
+  }
+}

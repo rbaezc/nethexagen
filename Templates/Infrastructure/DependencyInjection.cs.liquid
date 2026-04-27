@@ -1,0 +1,31 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using {{ ProjectName }}.Infrastructure.Persistence;
+using {{ ProjectName }}.Domain.Abstractions;
+using {{ ProjectName }}.Infrastructure.Repositories;
+
+namespace {{ ProjectName }}.Infrastructure;
+
+public static class DependencyInjection
+{
+    public static IServiceCollection AddInfrastructure(
+        this IServiceCollection services,
+        IConfiguration configuration)
+    {
+        var connectionString = configuration.GetConnectionString("Database");
+
+        services.AddDbContext<ApplicationDbContext>(options =>
+            {% if DbProvider == "postgresql" %}
+            options.UseNpgsql(connectionString));
+            {% elsif DbProvider == "sqlite" %}
+            options.UseSqlite(connectionString));
+            {% else %}
+            options.UseSqlServer(connectionString));
+            {% endif %}
+
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+        return services;
+    }
+}

@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    
+    <!-- NuGet Metadata -->
+    <PackageId>NetHexaGen</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>rbaezc</Authors>
+    <Company>Vortex Solutions</Company>
+    <Description>Ultimate Enterprise-Grade Clean Architecture Scaffolding Engine for .NET 10. Generates DDD, CQRS, JWT, Docker, and more.</Description>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/rbaezc/NetHexaGen</PackageProjectUrl>
+    <PackageTags>dotnet;scaffolding;clean-architecture;ddd;cqrs;enterprise;generator</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/rbaezc/NetHexaGen</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    
+    <!-- To include templates in the NuGet package -->
+    <IncludeContentInPack>true</IncludeContentInPack>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fluid.Core" Version="2.31.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0-preview.2.25120.3" />
+    <PackageReference Include="Spectre.Console" Version="0.55.2" />
+    <PackageReference Include="Spectre.Console.Cli" Version="0.55.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Templates\**\*" Pack="true" PackagePath="content\Templates" />
+    <Content Include="README.md" Pack="true" PackagePath="\" />
+    <Content Include="LICENSE" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

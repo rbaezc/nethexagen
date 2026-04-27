@@ -1,0 +1,32 @@
+{
+  "version": 2,
+  "dgSpecHash": "Km9I+jHkIdo=",
+  "success": true,
+  "projectFilePath": "C:\\Projects\\VortexSolutions\\Vortex Libraries\\NetHexaGen\\NetHexaGen.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\raulb\\.nuget\\packages\\fluid.core\\2.31.0\\fluid.core.2.31.0.nupkg.sha512",
+    "C:\\Users\\raulb\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.0-preview.2.25163.2\\microsoft.extensions.dependencyinjection.10.0.0-preview.2.25163.2.nupkg.sha512",
+    "C:\\Users\\raulb\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0-preview.2.25163.2\\microsoft.extensions.dependencyinjection.abstractions.10.0.0-preview.2.25163.2.nupkg.sha512",
+    "C:\\Users\\raulb\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\9.0.0\\microsoft.extensions.fileproviders.abstractions.9.0.0.nupkg.sha512",
+    "C:\\Users\\raulb\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.0\\microsoft.extensions.primitives.9.0.0.nupkg.sha512",
+    "C:\\Users\\raulb\\.nuget\\packages\\parlot\\1.5.2\\parlot.1.5.2.nupkg.sha512",
+    "C:\\Users\\raulb\\.nuget\\packages\\spectre.console\\0.55.2\\spectre.console.0.55.2.nupkg.sha512",
+    "C:\\Users\\raulb\\.nuget\\packages\\spectre.console.ansi\\0.55.2\\spectre.console.ansi.0.55.2.nupkg.sha512",
+    "C:\\Users\\raulb\\.nuget\\packages\\spectre.console.cli\\0.55.0\\spectre.console.cli.0.55.0.nupkg.sha512",
+    "C:\\Users\\raulb\\.nuget\\packages\\timezoneconverter\\7.2.0\\timezoneconverter.7.2.0.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "message": "NetHexaGen depende de Microsoft.Extensions.DependencyInjection (>= 10.0.0-preview.2.25120.3), pero no se encontró Microsoft.Extensions.DependencyInjection 10.0.0-preview.2.25120.3. Microsoft.Extensions.DependencyInjection 10.0.0-preview.2.25163.2 se resolvió en su lugar.",
+      "projectPath": "C:\\Projects\\VortexSolutions\\Vortex Libraries\\NetHexaGen\\NetHexaGen.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Projects\\VortexSolutions\\Vortex Libraries\\NetHexaGen\\NetHexaGen.csproj",
+      "libraryId": "Microsoft.Extensions.DependencyInjection",
+      "targetGraphs": [
+        "net10.0"
+      ]
+    }
+  ]
+}

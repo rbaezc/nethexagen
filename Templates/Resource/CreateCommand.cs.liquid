@@ -1,0 +1,5 @@
+using {{ ProjectName }}.Application.Abstractions.Messaging;
+
+namespace {{ ProjectName }}.Application.{{ ResourceName }}s.Create;
+
+public sealed record Create{{ ResourceName }}Command() : ICommand<Guid>;

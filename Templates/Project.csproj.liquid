@@ -1,0 +1,47 @@
+<Project Sdk="{% if Layer == 'Api' %}Microsoft.NET.Sdk.Web{% else %}Microsoft.NET.Sdk{% endif %}">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  {% if Layer == "Application" %}
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.4.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.11.0" />
+    <PackageReference Include="Mapster" Version="7.4.0" />
+    <PackageReference Include="Mapster.DependencyInjection" Version="1.0.1" />
+    <ProjectReference Include="..\{{ ProjectName }}.Domain\{{ ProjectName }}.Domain.csproj" />
+  </ItemGroup>
+  {% endif %}
+
+  {% if Layer == "Infrastructure" %}
+  <ItemGroup>
+    {% if DbProvider == "postgresql" %}
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.3" />
+    {% elsif DbProvider == "sqlite" %}
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.0-preview.2.25120.3" />
+    {% else %}
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.0-preview.2.25120.3" />
+    {% endif %}
+    <ProjectReference Include="..\{{ ProjectName }}.Application\{{ ProjectName }}.Application.csproj" />
+  </ItemGroup>
+  {% endif %}
+
+  {% if Layer == "Api" %}
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.0-preview.2.25120.3" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.0.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="8.0.3" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
+    <PackageReference Include="Asp.Versioning.Http" Version="8.1.0" />
+    <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="10.0.0-preview.2.25120.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.0-preview.2.25120.3" />
+    <ProjectReference Include="..\{{ ProjectName }}.Infrastructure\{{ ProjectName }}.Infrastructure.csproj" />
+  </ItemGroup>
+  {% endif %}
+
+</Project>

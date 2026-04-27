@@ -1,0 +1,10 @@
+using MediatR;
+using {{ ProjectName }}.Domain.Shared;
+
+namespace {{ ProjectName }}.Application.Abstractions.Messaging;
+
+public interface IQueryHandler<TQuery, TResponse> 
+    : IRequestHandler<TQuery, Result<TResponse>>
+    where TQuery : IQuery<TResponse>
+{
+}

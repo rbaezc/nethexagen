@@ -1,0 +1,18 @@
+using System.Linq.Expressions;
+using {{ ProjectName }}.Domain.Primitives;
+
+namespace {{ ProjectName }}.Domain.Abstractions;
+
+public interface IRepository<TEntity>
+    where TEntity : Entity
+{
+    Task<TEntity?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default);
+
+    Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken cancellationToken = default);
+
+    void Add(TEntity entity);
+
+    void Update(TEntity entity);
+
+    void Remove(TEntity entity);
+}

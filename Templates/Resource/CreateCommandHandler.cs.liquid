@@ -1,0 +1,29 @@
+using {{ ProjectName }}.Application.Abstractions.Messaging;
+using {{ ProjectName }}.Domain.Abstractions;
+using {{ ProjectName }}.Domain.Entities;
+using {{ ProjectName }}.Domain.Shared;
+
+namespace {{ ProjectName }}.Application.{{ ResourceName }}s.Create;
+
+internal sealed class Create{{ ResourceName }}CommandHandler : ICommandHandler<Create{{ ResourceName }}Command, Guid>
+{
+    private readonly IRepository<{{ ResourceName }}> _repository;
+    private readonly IUnitOfWork _unitOfWork;
+
+    public Create{{ ResourceNameCommandHandler(IRepository<{{ ResourceName }}> repository, IUnitOfWork unitOfWork)
+    {
+        _repository = repository;
+        _unitOfWork = unitOfWork;
+    }
+
+    public async Task<Result<Guid>> Handle(Create{{ ResourceName }}Command request, CancellationToken cancellationToken)
+    {
+        var entity = new {{ ResourceName }}(Guid.NewGuid());
+
+        _repository.Add(entity);
+
+        await _unitOfWork.SaveChangesAsync(cancellationToken);
+
+        return entity.Id;
+    }
+}

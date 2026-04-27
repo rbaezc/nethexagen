@@ -1,0 +1,19 @@
+using MediatR;
+using {{ ProjectName }}.Application.{{ ResourceName }}s.Create;
+
+namespace {{ ProjectName }}.Api.Endpoints;
+
+public static class {{ ResourceName }}Endpoints
+{
+    public static void Map{{ ResourceName }}Endpoints(this IEndpointRouteBuilder app)
+    {
+        var group = app.MapGroup("api/{{ ResourceName | downcase }}s");
+
+        group.MapPost("/", async (ISender sender, CancellationToken ct) =>
+        {
+            var command = new Create{{ ResourceName }}Command();
+            var result = await sender.Send(command, ct);
+            return result.IsSuccess ? Results.Ok(result.Value) : Results.BadRequest(result.Error);
+        });
+    }
+}

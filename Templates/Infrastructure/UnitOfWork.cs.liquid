@@ -1,0 +1,14 @@
+using {{ ProjectName }}.Domain.Abstractions;
+using {{ ProjectName }}.Infrastructure.Persistence;
+
+namespace {{ ProjectName }}.Infrastructure.Repositories;
+
+public sealed class UnitOfWork : IUnitOfWork
+{
+    private readonly ApplicationDbContext _dbContext;
+
+    public UnitOfWork(ApplicationDbContext dbContext) => _dbContext = dbContext;
+
+    public Task<int> SaveChangesAsync(CancellationToken cancellationToken = default) =>
+        _dbContext.SaveChangesAsync(cancellationToken);
+}

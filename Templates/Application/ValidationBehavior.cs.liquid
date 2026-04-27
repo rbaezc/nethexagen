@@ -1,0 +1,64 @@
+using FluentValidation;
+using MediatR;
+using {{ ProjectName }}.Application.Abstractions.Messaging;
+using {{ ProjectName }}.Domain.Shared;
+
+namespace {{ ProjectName }}.Application.Behaviors;
+
+public class ValidationBehavior<TRequest, TResponse>
+    : IPipelineBehavior<TRequest, TResponse>
+    where TRequest : IBaseCommand
+    where TResponse : Result
+{
+    private readonly IEnumerable<IValidator<TRequest>> _validators;
+
+    public ValidationBehavior(IEnumerable<IValidator<TRequest>> validators) =>
+        _validators = validators;
+
+    public async Task<TResponse> Handle(
+        TRequest request,
+        RequestHandlerDelegate<TResponse> next,
+        CancellationToken cancellationToken)
+    {
+        if (!_validators.Any())
+        {
+            return await next();
+        }
+
+        var context = new ValidationContext<TRequest>(request);
+
+        var validationErrors = _validators
+            .Select(validator => validator.Validate(context))
+            .SelectMany(validationResult => validationResult.Errors)
+            .Where(validationFailure => validationFailure is not null)
+            .Select(failure => new Error(
+                failure.PropertyName,
+                failure.ErrorMessage))
+            .Distinct()
+            .ToArray();
+
+        if (validationErrors.Any())
+        {
+            return CreateValidationResult<TResponse>(validationErrors);
+        }
+
+        return await next();
+    }
+
+    private static TResponse CreateValidationResult<TResult>(Error[] errors)
+        where TResult : Result
+    {
+        if (typeof(TResult) == typeof(Result))
+        {
+            return (ValidationResult.WithErrors(errors) as TResult)!;
+        }
+
+        object validationResult = typeof(ValidationResult<>)
+            .GetGenericTypeDefinition()
+            .MakeGenericType(typeof(TResult).GetGenericArguments()[0])
+            .GetMethod(nameof(ValidationResult.WithErrors))!
+            .Invoke(null, new object?[] { errors })!;
+
+        return (TResult)validationResult;
+    }
+}

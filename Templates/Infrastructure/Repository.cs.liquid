@@ -1,0 +1,26 @@
+using Microsoft.EntityFrameworkCore;
+using {{ ProjectName }}.Domain.Abstractions;
+using {{ ProjectName }}.Domain.Primitives;
+using {{ ProjectName }}.Infrastructure.Persistence;
+
+namespace {{ ProjectName }}.Infrastructure.Repositories;
+
+public abstract class Repository<TEntity> : IRepository<TEntity>
+    where TEntity : Entity
+{
+    protected readonly ApplicationDbContext DbContext;
+
+    protected Repository(ApplicationDbContext dbContext) => DbContext = dbContext;
+
+    public async Task<TEntity?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default) =>
+        await DbContext.Set<TEntity>().FirstOrDefaultAsync(e => e.Id == id, cancellationToken);
+
+    public async Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken cancellationToken = default) =>
+        await DbContext.Set<TEntity>().ToListAsync(cancellationToken);
+
+    public void Add(TEntity entity) => DbContext.Set<TEntity>().Add(entity);
+
+    public void Update(TEntity entity) => DbContext.Set<TEntity>().Update(entity);
+
+    public void Remove(TEntity entity) => DbContext.Set<TEntity>().Remove(entity);
+}

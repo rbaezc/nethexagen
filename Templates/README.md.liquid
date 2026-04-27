@@ -1,0 +1,59 @@
+# {{ ProjectName }} - Clean Architecture Solution
+
+This project was generated using **NetHexaGen**, an enterprise-grade scaffolding tool for .NET 10.
+
+## Solution Structure
+
+The solution follows **Clean Architecture** and **DDD** principles:
+
+- **{{ ProjectName }}.Domain**: Contains business entities, value objects, and pure abstraction interfaces. Includes the **Result** pattern and **PagedList** for pagination.
+- **{{ ProjectName }}.Application**: Contains business logic, use cases (MediatR), FluentValidation, and Mapster mappings.
+- **{{ ProjectName }}.Infrastructure**: Persistence implementation ({{ DbProvider | upcase }}), generic repositories, and Unit of Work.
+- **{{ ProjectName }}.Api**: Application entry point ({{ ApiType }}). Includes **JWT** security, **CORS**, **Scalar** documentation, **Versioning**, and **Health Checks**.
+- **{{ ProjectName }}.ArchitectureTests**: Test suite using **NetArchTest** to ensure architectural dependency integrity.
+
+## Getting Started
+
+### Prerequisites
+- .NET 10 SDK
+- Docker (optional for deployment)
+
+### Database Setup
+If your project includes a relational database ({{ DbProvider | upcase }}), apply the initial migrations:
+`dotnet ef database update --project {{ ProjectName }}.Infrastructure --startup-project {{ ProjectName }}.Api`
+
+### Running the Project
+1. Navigate to the API folder: `cd {{ ProjectName }}.Api`
+2. Run the project: `dotnet run`
+3. Open the documentation at: `https://localhost:PORT/scalar/v1`
+
+### Database Setup
+If your project includes a relational database ({{ DbProvider | upcase }}), apply the initial migrations:
+```bash
+dotnet ef database update --project {{ ProjectName }}.Infrastructure --startup-project {{ ProjectName }}.Api
+```
+
+### Security
+The API includes support for **JWT Bearer Authentication**. Configure your keys in the API's `appsettings.json`. By default, some endpoints are protected with `RequireAuthorization`.
+
+### Testing
+Run all tests (including architecture tests) with:
+```bash
+dotnet test
+```
+
+## Included Enterprise Features
+- ✅ **Clean Architecture & DDD**.
+- ✅ **JWT Security** & **CORS** policies.
+- ✅ **Generic Pagination** with `PagedList<T>`.
+- ✅ **CQRS** with MediatR.
+- ✅ **Automatic Validation** & **Mapping** (Mapster).
+- ✅ **Structured Logging** with Serilog.
+- ✅ **Global Exception Handling** (Problem Details).
+- ✅ **API Versioning** & **Health Checks**.
+- ✅ **Architecture Guard** with NetArchTest.
+- ✅ **Code Consistency** with `.editorconfig`.
+- ✅ **Docker Ready**.
+
+---
+Developed by **rbaezc**. Licensed to **Vortex Solutions**.

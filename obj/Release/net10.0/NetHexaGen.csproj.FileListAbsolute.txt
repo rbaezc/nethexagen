@@ -34,3 +34,4 @@ C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\obj\Release\net10.0\refi
 C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\obj\Release\net10.0\NetHexaGen.pdb
 C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\obj\Release\net10.0\NetHexaGen.genruntimeconfig.cache
 C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\obj\Release\net10.0\ref\NetHexaGen.dll
+C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\obj\Release\net10.0\NetHexaGen.sourcelink.json

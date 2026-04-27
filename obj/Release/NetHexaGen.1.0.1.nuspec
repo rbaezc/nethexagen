@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>NetHexaGen</id>
+    <version>1.0.1</version>
+    <authors>rbaezc</authors>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>README.md</readme>
+    <projectUrl>https://github.com/rbaezc/NetHexaGen</projectUrl>
+    <description>Ultimate Enterprise-Grade Clean Architecture Scaffolding Engine for .NET 10. Generates DDD, CQRS, JWT, Docker, and more.</description>
+    <tags>dotnet scaffolding clean-architecture ddd cqrs enterprise generator</tags>
+    <packageTypes>
+      <packageType name="DotnetTool" />
+    </packageTypes>
+    <repository type="git" url="https://github.com/rbaezc/NetHexaGen" commit="4a8aa72f7beee27a15bfa25d5561b19ad836085c" />
+  </metadata>
+  <files>
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\obj\Release\net10.0\DotnetToolSettings.xml" target="tools\net10.0\any\DotnetToolSettings.xml" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\Fluid.dll" target="tools\net10.0\any\Fluid.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\Microsoft.Extensions.DependencyInjection.Abstractions.dll" target="tools\net10.0\any\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\Microsoft.Extensions.DependencyInjection.dll" target="tools\net10.0\any\Microsoft.Extensions.DependencyInjection.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\Microsoft.Extensions.FileProviders.Abstractions.dll" target="tools\net10.0\any\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\Microsoft.Extensions.Primitives.dll" target="tools\net10.0\any\Microsoft.Extensions.Primitives.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\NetHexaGen.deps.json" target="tools\net10.0\any\NetHexaGen.deps.json" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\NetHexaGen.dll" target="tools\net10.0\any\NetHexaGen.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\NetHexaGen.pdb" target="tools\net10.0\any\NetHexaGen.pdb" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\NetHexaGen.runtimeconfig.json" target="tools\net10.0\any\NetHexaGen.runtimeconfig.json" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\Parlot.dll" target="tools\net10.0\any\Parlot.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\Spectre.Console.Ansi.dll" target="tools\net10.0\any\Spectre.Console.Ansi.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\Spectre.Console.Cli.dll" target="tools\net10.0\any\Spectre.Console.Cli.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\Spectre.Console.dll" target="tools\net10.0\any\Spectre.Console.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\TimeZoneConverter.dll" target="tools\net10.0\any\TimeZoneConverter.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\de\Spectre.Console.Cli.resources.dll" target="tools\net10.0\any\de\Spectre.Console.Cli.resources.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\es\Spectre.Console.Cli.resources.dll" target="tools\net10.0\any\es\Spectre.Console.Cli.resources.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\fr\Spectre.Console.Cli.resources.dll" target="tools\net10.0\any\fr\Spectre.Console.Cli.resources.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\it\Spectre.Console.Cli.resources.dll" target="tools\net10.0\any\it\Spectre.Console.Cli.resources.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\ja\Spectre.Console.Cli.resources.dll" target="tools\net10.0\any\ja\Spectre.Console.Cli.resources.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\ko\Spectre.Console.Cli.resources.dll" target="tools\net10.0\any\ko\Spectre.Console.Cli.resources.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\pt\Spectre.Console.Cli.resources.dll" target="tools\net10.0\any\pt\Spectre.Console.Cli.resources.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\ru\Spectre.Console.Cli.resources.dll" target="tools\net10.0\any\ru\Spectre.Console.Cli.resources.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\sv\Spectre.Console.Cli.resources.dll" target="tools\net10.0\any\sv\Spectre.Console.Cli.resources.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\bin\Release\net10.0\publish\zh-Hans\Spectre.Console.Cli.resources.dll" target="tools\net10.0\any\zh-Hans\Spectre.Console.Cli.resources.dll" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Api\ApiController.cs.liquid" target="content\Templates\Api\ApiController.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Api\appsettings.json.liquid" target="content\Templates\Api\appsettings.json.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Api\Dockerfile.liquid" target="content\Templates\Api\Dockerfile.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Api\GlobalExceptionHandler.cs.liquid" target="content\Templates\Api\GlobalExceptionHandler.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Api\Program.cs.liquid" target="content\Templates\Api\Program.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Application\DependencyInjection.cs.liquid" target="content\Templates\Application\DependencyInjection.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Application\ICommand.cs.liquid" target="content\Templates\Application\ICommand.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Application\ICommandHandler.cs.liquid" target="content\Templates\Application\ICommandHandler.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Application\IQuery.cs.liquid" target="content\Templates\Application\IQuery.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Application\IQueryHandler.cs.liquid" target="content\Templates\Application\IQueryHandler.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Application\ValidationBehavior.cs.liquid" target="content\Templates\Application\ValidationBehavior.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\ArchitectureTests.cs.liquid" target="content\Templates\ArchitectureTests.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\ArchitectureTests.csproj.liquid" target="content\Templates\ArchitectureTests.csproj.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Domain\Entity.cs.liquid" target="content\Templates\Domain\Entity.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Domain\Error.cs.liquid" target="content\Templates\Domain\Error.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Domain\IRepository.cs.liquid" target="content\Templates\Domain\IRepository.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Domain\IUnitOfWork.cs.liquid" target="content\Templates\Domain\IUnitOfWork.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Domain\PagedList.cs.liquid" target="content\Templates\Domain\PagedList.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Domain\Result.cs.liquid" target="content\Templates\Domain\Result.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Domain\ValidationResult.cs.liquid" target="content\Templates\Domain\ValidationResult.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Domain\ValueObject.cs.liquid" target="content\Templates\Domain\ValueObject.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\editorconfig.liquid" target="content\Templates\editorconfig.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Infrastructure\ApplicationDbContext.cs.liquid" target="content\Templates\Infrastructure\ApplicationDbContext.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Infrastructure\DependencyInjection.cs.liquid" target="content\Templates\Infrastructure\DependencyInjection.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Infrastructure\Repository.cs.liquid" target="content\Templates\Infrastructure\Repository.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Infrastructure\UnitOfWork.cs.liquid" target="content\Templates\Infrastructure\UnitOfWork.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Project.csproj.liquid" target="content\Templates\Project.csproj.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\README.md.liquid" target="content\Templates\README.md.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Resource\Controller.cs.liquid" target="content\Templates\Resource\Controller.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Resource\CreateCommand.cs.liquid" target="content\Templates\Resource\CreateCommand.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Resource\CreateCommandHandler.cs.liquid" target="content\Templates\Resource\CreateCommandHandler.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Resource\Endpoints.cs.liquid" target="content\Templates\Resource\Endpoints.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\Templates\Resource\Entity.cs.liquid" target="content\Templates\Resource\Entity.cs.liquid" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\README.md" target="\README.md" />
+    <file src="C:\Projects\VortexSolutions\Vortex Libraries\NetHexaGen\LICENSE" target="\LICENSE" />
+  </files>
+</package>

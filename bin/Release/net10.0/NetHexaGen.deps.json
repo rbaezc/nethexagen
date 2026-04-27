@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v10.0": {
-      "NetHexaGen/1.0.0": {
+      "NetHexaGen/1.0.1": {
         "dependencies": {
           "Fluid.Core": "2.31.0",
           "Microsoft.Extensions.DependencyInjection": "10.0.0-preview.2.25163.2",
@@ -149,7 +149,7 @@
     }
   },
   "libraries": {
-    "NetHexaGen/1.0.0": {
+    "NetHexaGen/1.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

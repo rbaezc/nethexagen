@@ -14,11 +14,11 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("Ultimate Enterprise-Grade Clean Architecture Scaffolding Engine for .NET 10. Gene" +
     "rates DDD, CQRS, JWT, Docker, and more."))]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.1.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.1+4a8aa72f7beee27a15bfa25d5561b19ad836085c")]
 [assembly: System.Reflection.AssemblyProductAttribute("NetHexaGen")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NetHexaGen")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.0.1.0")]
 [assembly: System.Reflection.AssemblyMetadataAttribute("RepositoryUrl", "https://github.com/rbaezc/NetHexaGen")]
 
 // Generado por la clase WriteCodeFragment de MSBuild.
